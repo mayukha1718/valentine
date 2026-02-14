@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For You 💐</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e, #fecfef);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial;
+  overflow: hidden;
+}
+
+/* Floating hearts */
+.heart {
+  position: absolute;
+  color: #ff4d6d;
+  font-size: 20px;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  0% {transform: translateY(100vh); opacity: 1;}
+  100% {transform: translateY(-10vh); opacity: 0;}
+}
+
+/* Bouquet */
+.bouquet {
+  font-size: 80px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,100% {transform: translateY(0);}
+  50% {transform: translateY(-15px);}
+}
+
+/* Box */
+.box {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0,0,0,0.2);
+}
+
+/* Messages */
+.message {
+  font-size: 18px;
+  color: #ff4d6d;
+  margin-top: 15px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  background: #ff4d6d;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #e63950;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  
+  <div class="bouquet">💐</div>
+  
+  <h2>For You poochutta🥹🌷</h2>
+  
+  <button onclick="showMessages()">Open my bouquet</button>
+  
+  <div class="message" id="m1">This bouquet is for you 🌸</div>
+  <div class="message" id="m2">Thank you for everything my valentine poochu😽💕</div>
+  <div class="message" id="m3">You are my favorite person forever ever 🥺</div>
+  <div class="message" id="m4">Happy Valentine's Day my love poochuvee 🥺💝</div>
+  <div class="message" id="m5"> Mwuahh from poochutti 😽💝🫶</div>
+</div>
+
+<script>
+
+/* Show messages one by one */
+function showMessages() {
+  let messages = ["m1","m2","m3","m4","m5"];
+  
+  messages.forEach((id, index) => {
+    setTimeout(() => {
+      document.getElementById(id).style.opacity = 1;
+    }, index * 1500);
+  });
+}
+
+/* Floating hearts */
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "🎀";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 5000);
+}
+
+setInterval(createHeart, 300);
+
+</script>
+
+</body>
+</html>
